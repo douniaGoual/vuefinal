@@ -107,7 +107,7 @@ return total.toFixed(2);
              quantite.push(item.quantite);
              });
                 this.axios
-                .post("http://localhost:3000/command/new" , {
+                .post(`${this.$apiurl}command/new`, {
                     clientId : 1,
                     panier: this.panier,
                     produitId : produitId,

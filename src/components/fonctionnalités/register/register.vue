@@ -95,7 +95,7 @@
         methods: {
             /* J'inclus une méthods pour gérer le processus de connexion */
             register() {
-                let url = 'http://localhost:5000/client/nouveauclient';
+                let url = `${this.$apiurl}client/nouveauclient`;
                 this.axios.post(url, this.regist).then(() => {
                         this.$router.push("/login")
                     })

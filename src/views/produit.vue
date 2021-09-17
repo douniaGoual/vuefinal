@@ -20,7 +20,7 @@ export default {
   created() {
     alert("ok");
     this.axios
-      .get("http://localhost:3000/produit/all")
+      .get(`${this.$apiurl}produit/all`)
       .then((res) => {
         
         this.produits = res.data.produits;

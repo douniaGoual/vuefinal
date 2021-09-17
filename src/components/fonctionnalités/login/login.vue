@@ -59,7 +59,7 @@
 
     methods: {
       LoginShop () { 
-          let url = "http://localhost:5000/client/login"
+          let url = `${this.$apiurl}client/login`;
         this.axios.post( url, {email:this.email, password:this.password }) 
         .then((response) => {
             

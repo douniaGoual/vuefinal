@@ -58,12 +58,12 @@ export default {
     },
     methods: {
         getAll(){
-            let url = 'http://localhost:3000/produit/All';
+            let url = `${this.$apiurl}produit/All`;
             this.axios.get(url)
             .then((response) =>{
                 
                 
-                this.produits = response.data;
+                this.produits = response.data.produits;
                
                 
             })
