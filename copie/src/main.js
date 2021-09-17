@@ -8,22 +8,19 @@ import BootstrapVue from 'bootstrap-vue';
 import axios from 'axios'
 
 
+
+Vue.prototype.$http = axios;
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false;
 
+const token = localStorage.getItem('token');
+if (token) {
+  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+}
 
- /* render :  function ( createElement ) {
-  return  createElement (App);
-}La render()fonction est un élément central de Vue.
- */
 new Vue({
   router,
-  // h un alias createElement
   render: h => h(App)
-   // “mount”  cela veux dire cest le moment où votre composant est inséré dans le DOM.
-  // Ce code crée une nouvelle instance de Vue et la monte sur l'élément HTML avec l'ID d'application. 
 }).$mount('#app')
 
-
- 
