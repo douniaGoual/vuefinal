@@ -44,14 +44,14 @@ export default {
     methods: {
         dologin: function () {
             this.axios
-            .post("http://localhost:3000/user/login",{
+            .post(`${this.$apiurl}user/login`,{
                 email : this.email,
                 password : this.password,
             })
             .then((res) => {
                 if ( res.data.auth) {
                     alert( res.data.auth);
-                    localhost.setItem("token", res.data.token);
+                    localStorage.setItem("token", res.data.token);
                     var user = jwt.decode(res.data.token);
                     if (user.role == "admin") {
                     // this.$router.push({ name: "/admin/home" });  
@@ -72,8 +72,7 @@ export default {
                     
                 }
             })
-            .catch((res) => {
-                console.log(err);
+            .catch(() => {
             })
         }
     }
