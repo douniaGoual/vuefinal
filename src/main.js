@@ -8,6 +8,10 @@ import BootstrapVue from 'bootstrap-vue';
 import axios from 'axios'
 
 
+
+// cest raccoursi de mon lien api 
+Vue.prototype.$apiurl = "https://api.monblog.shop/";
+
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false;
