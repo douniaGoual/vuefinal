@@ -61,9 +61,7 @@ export default {
             let url = `${this.$apiurl}produit/All`;
             this.axios.get(url)
             .then((response) =>{
-                
-                
-                this.produits = response.data.produits;
+                this.produits = response.data;
                
                 
             })
@@ -73,8 +71,6 @@ export default {
                 alert(`le produit ${id} `)
 
                 this.Panier = this.Panier || [];
-                //eslint-disable-next-line no-console
-                console.log(id);
                 localStorage.removeItem("panier");
                 if (this.Panier.length === 0) {
                     let quantite = 1;
@@ -120,10 +116,6 @@ export default {
                 let getlocalSt = localStorage.getItem("panier");
                 if (getlocalSt != null || getlocalSt !== undefined) {
                     this.Panier = JSON.parse(getlocalSt);
-                    //eslint-disable-next-line no-console
-                console.log(this.Panier);
-                   
-                    
                 }
             }
     },
